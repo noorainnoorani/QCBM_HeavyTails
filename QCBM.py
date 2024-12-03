@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import jax
 import jax.numpy as jnp
 
+import optax
+
 from functools import partial  # Importing 'partial' from functools to create partially evaluated functions
 
 class QCBM:
@@ -42,7 +44,6 @@ class QCBM:
         """
         px = self.circ(params)  # Compute the output distribution (px) from the quantum circuit using the current parameters
         return self.loss(px, self.py), px  # Return the loss between the output distribution px and the target distribution py, along with px itself
-
 
 class MMD:
     """
